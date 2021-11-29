@@ -1,0 +1,36 @@
+{
+    "name": "aqhmal/lumen-telegram-log",
+    "description": "A package to send Lumen logs to Telegram via Telegram Bot.",
+    "keywords": ["lumen", "telegram", "telegram-bot", "log", "monolog"],
+    "license": "MIT",
+    "homepage": "https://github.com/aqhmal/lumen-telegram-log",
+    "support": {
+        "issues": "https://github.com/aqhmal/lumen-telegram-log/issues",
+        "source": "https://github.com/aqhmal/lumen-telegram-log"
+    },
+    "authors": [
+        {
+            "name": "Aqhmal",
+            "email": "me@aqhmal.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "laravel/lumen-framework": "^8.3.1",
+        "monolog/monolog": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aqhmal\\TelegramLog\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aqhmal\\TelegramLog\\TelegramLogServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
