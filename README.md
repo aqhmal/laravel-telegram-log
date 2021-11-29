@@ -2,7 +2,7 @@
 
 A package to send Lumen logs to Telegram via Telegram Bot.
 
-This package adds the support for [this](https://github.com/rafaellaurindo/laravel-telegram-logging) Laravel package.
+This package adds the Lumen support for [this](https://github.com/rafaellaurindo/laravel-telegram-logging) Laravel package.
 
 Currently tested for support Lumen 8 and not tested yet for earlier versions.
 
