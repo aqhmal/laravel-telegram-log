@@ -1,25 +1,20 @@
-# Lumen Telegram Log
+# Laravel Telegram Log
 
-A package to send Lumen logs to Telegram via Telegram Bot. This package adds the Lumen support for [this](https://github.com/rafaellaurindo/laravel-telegram-logging) Laravel package. Currently tested for support Lumen 8 and not tested yet for earlier versions.
+A package to send Laravel logs to Telegram via Telegram Bot. This package adds the Lumen support for [this](https://github.com/rafaellaurindo/laravel-telegram-logging) Laravel package. Currently tested for support Laravel/Lumen 8 and not tested yet for earlier versions.
 
-[![PHP Version Require](https://poser.pugx.org/aqhmal/lumen-telegram-log/require/php)](https://packagist.org/packages/aqhmal/lumen-telegram-log)
-[![Total Downloads](https://poser.pugx.org/aqhmal/lumen-telegram-log/downloads)](https://packagist.org/packages/aqhmal/lumen-telegram-log)
-[![Version](http://poser.pugx.org/aqhmal/lumen-telegram-log/version)](https://packagist.org/packages/aqhmal/lumen-telegram-log)
-[![license](https://img.shields.io/github/license/aqhmal/lumen-telegram-log.svg)](https://github.com/aqhmal/lumen-telegram-log/blob/main/LICENSE.md)
+[![PHP Version Require](https://poser.pugx.org/aqhmal/laravel-telegram-log/require/php)](https://packagist.org/packages/aqhmal/laravel-telegram-log)
+[![Total Downloads](https://poser.pugx.org/aqhmal/laravel-telegram-log/downloads)](https://packagist.org/packages/aqhmal/laravel-telegram-log)
+[![Version](http://poser.pugx.org/aqhmal/laravel-telegram-log/version)](https://packagist.org/packages/aqhmal/laravel-telegram-log)
+[![license](https://img.shields.io/github/license/aqhmal/laravel-telegram-log.svg)](https://github.com/aqhmal/laravel-telegram-log/blob/main/LICENSE.md)
 
 ## Installation
 
 1. Install via composer
 ```bash
-composer require aqhmal/lumen-telegram-log
+composer require aqhmal/laravel-telegram-log
 ```
 
-2. Register a new Service Provider in **bootstrap/app.php**.
-```php
-$app->register(Aqhmal\TelegramLog\TelegramLogServiceProvider::class);
-```
-
-3. Add or create a new channel in **config/logging.php**.
+2. Add or create a new channel in **config/logging.php**.
 ```php
 'telegram' => [
     'driver' => 'custom',
@@ -28,7 +23,7 @@ $app->register(Aqhmal\TelegramLog\TelegramLogServiceProvider::class);
 ]
 ```
 
-Or, if you use stack as the default log channel, you can just append the telegram channel in it.
+If you use stack as the default log channel, you can append the telegram channel in it.
 ```php
 'stack' => [
     'driver' => 'stack',
@@ -36,15 +31,22 @@ Or, if you use stack as the default log channel, you can just append the telegra
 ]
 ```
 
-4. Add in your **.env** the following variables with its value.
+3. Add in your **.env** the following variables with its value.
 ```bash
 TELEGRAM_BOT_TOKEN=bot_token
 TELEGRAM_CHAT_ID=chat_id
 ```
 
-5. Change the `LOG_CHANNEL` value in your **.env** to `telegram`
+4. Change the `LOG_CHANNEL` value in your **.env** to `telegram`
 ```bash
 LOG_CHANNEL=telegram
+```
+
+## Lumen Support
+
+Register a new Service Provider in **bootstrap/app.php**.
+```php
+$app->register(Aqhmal\TelegramLog\TelegramLogServiceProvider::class);
 ```
 
 ## Usage
@@ -66,4 +68,4 @@ Log::debug($message);
 
 ## License
 
-This Lumen package is open-sourced software licensed under the [MIT license](https://github.com/aqhmal/lumen-telegram-log/blob/main/LICENSE.md).
+This Telegram log package is licensed under the [MIT license](https://github.com/aqhmal/laravel-telegram-log/blob/main/LICENSE.md).
