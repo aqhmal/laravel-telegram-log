@@ -25,15 +25,4 @@ class TelegramLogServiceProvider extends ServiceProvider
     {
         $this->publishes([__DIR__ . '/../config/telegram.php' => $this->config_path('telegram.php')]);
     }
-
-    /**
-     * Get the configuration path.
-     *
-     * @param  string  $path
-     * @return string
-     */
-    private function config_path($path = '')
-    {
-        return app()->basePath() . '/config' . ($path ? '/' . $path : $path);
-    }
 }
