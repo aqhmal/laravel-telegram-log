@@ -23,6 +23,6 @@ class TelegramLogServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([__DIR__ . '/../config/telegram.php' => $this->config_path('telegram.php')]);
+        $this->publishes([__DIR__ . '/../config/telegram.php' => config_path('telegram.php')]);
     }
 }
