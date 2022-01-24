@@ -23,6 +23,13 @@ class TelegramLogHandler extends AbstractProcessingHandler
     private string $applicationEnvironment;
 
     /**
+     * The application URL.
+     *
+     * @var string
+     */
+    protected string $applicationUrl;
+
+    /**
      * The instance of TelegramService
      *
      * @var \Aqhmal\TelegramLog\Services\TelegramService
@@ -42,6 +49,7 @@ class TelegramLogHandler extends AbstractProcessingHandler
 
         $this->applicationName = config('app.name');
         $this->applicationEnvironment = config('app.env');
+        $this->applicationUrl = config('app.url');
 
         $this->telegramService = new TelegramService(
             config('telegram.bot_token'),
@@ -67,21 +75,22 @@ class TelegramLogHandler extends AbstractProcessingHandler
      * @param  array  $log
      * @return string
      */
-    protected function formatLogText(array $log)
+    protected function formatLogText(array $log): string
     {
-        $logText = '<b>Application:</b> ' . $this->applicationName . PHP_EOL;
-        $logText .= '<b>Environment:</b> ' . $this->applicationEnvironment . PHP_EOL;
-        $logText .= '<b>Log Level:</b> <code>' . $log['level_name'] . '</code>' . PHP_EOL;
+        $logText = '<b>📌 Application:</b> ' . $this->applicationName . PHP_EOL;
+        $logText .= '<b>♻️ Environment:</b> ' . $this->applicationEnvironment . PHP_EOL;
+        $logText .= '<b>🔗 URL:</b> ' . $this->applicationUrl . PHP_EOL;
+        $logText .= '<b>⚠️ Log Level:</b> ' . $log['level_name'] . PHP_EOL;
+        $logText .= '<b>🕒 Timestamp:</b> ' . $log['datetime']->format('Y-m-d H:i:s') . PHP_EOL;
 
         if (! empty($log['extra'])) {
-            $logText .= '<b>Extra:</b>' . PHP_EOL . '<code>' . json_encode($log['extra']) . '</code>' . PHP_EOL;
+            $logText .= '<b>🧪 Extra:</b>' . PHP_EOL . '<code>' . json_encode($log['extra']) . '</code>' . PHP_EOL;
         }
 
-        if (! empty($log['context'])) {
-            $logText .= '<b>Context:</b>' . PHP_EOL . '<code>' . json_encode($log['context']) . '</code>' . PHP_EOL;
-        }
+        $log_arr = explode(' ', $log['formatted']);
+        $message = implode(' ', array_slice($log_arr, 2));
 
-        $logText .= '<b>Message:</b>' . PHP_EOL . '<pre>' . $log['message'] . '</pre>';
+        $logText .= '<b>✉️ Message:</b>' . PHP_EOL . '<pre>' . $message . '</pre>';
 
         return $logText;
     }
