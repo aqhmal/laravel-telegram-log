@@ -13,21 +13,21 @@ class TelegramLogHandler extends AbstractProcessingHandler
      *
      * @var string
      */
-    private string $applicationName;
+    private $applicationName;
 
     /**
      * The application environment.
      *
      * @var string
      */
-    private string $applicationEnvironment;
+    private $applicationEnvironment;
 
     /**
      * The application URL.
      *
      * @var string
      */
-    protected string $applicationUrl;
+    protected $applicationUrl;
 
     /**
      * The instance of TelegramService
