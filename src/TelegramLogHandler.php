@@ -79,7 +79,7 @@ class TelegramLogHandler extends AbstractProcessingHandler
     {
         $logText = '<b>📌 Application:</b> ' . $this->applicationName . PHP_EOL;
         $logText .= '<b>♻️ Environment:</b> ' . $this->applicationEnvironment . PHP_EOL;
-        $logText .= '<b>🔗 URL:</b> ' . $this->applicationUrl . PHP_EOL;
+        // $logText .= '<b>🔗 URL:</b> ' . $this->applicationUrl . PHP_EOL;
         $logText .= '<b>⚠️ Log Level:</b> ' . $log['level_name'] . PHP_EOL;
         $logText .= '<b>🕒 Timestamp:</b> ' . $log['datetime']->format('Y-m-d H:i:s') . PHP_EOL;
 
